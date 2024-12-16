@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap and Geolocation Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1>Hello World!</h1>
+  <p>test1234567890.</p>
+  <p>test12345678901.</p>
+  <div class="row">
+    <div class="col-sm-4" style="background-color:rgb(209, 30, 30);">.col-sm-4</div>
+    <div class="col-sm-4" style="background-color:rgb(225, 28, 18);">.col-sm-4</div>
+    <div class="col-sm-4" style="background-color:rgb(207, 17, 17);">.col-sm-4</div>
+  </div>
+  <h1>HTML Geolocation</h1>
+  <p>Click the button to get your location.</p>
+
+  <button onclick="getLocation()">Click this</button>
+
+  <p id="demo"></p>
+  
+  <script>
+    const x = document.getElementById("demo");
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+    }
+
+    function showError(error) {
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          x.innerHTML = "User denied the request for Geolocation.";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          x.innerHTML = "Location information is unavailable.";
+          break;
+        case error.TIMEOUT:
+          x.innerHTML = "The request to get user location timed out.";
+          break;
+        case error.UNKNOWN_ERROR:
+          x.innerHTML = "An unknown error occurred.";
+          break;
+      }
+    }
+  </script>
+  <img src="https://c1.staticflickr.com/1/578/21820499801_7cb12b1043_b.jpg" width="300">
+  <img src="download.test.jpg" width="300" alt="athlete">
+</div>
+
+</body>
+</html>

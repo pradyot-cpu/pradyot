@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" onsubmit="return false;">
+        <input type="text" name="tb1" id="tb1" 
+        placeholder="Enter 1st value" />
+        
+        <input type="text" name="tb2" id="tb2" 
+        placeholder="Enter 2nd value" />
+        <button type="button" onclick="sum()">
+            Sum
+        </button>
+        <button type="button" onclick="difference()">
+            difference
+        </button> 
+    
+
+    </form>
+
+    <script>
+        function sum() {
+            var a = parseFloat(document.getElementById("tb1").value);
+            var b = parseFloat(document.getElementById("tb2").value);
+            var c = a + b;
+            window.alert(c);
+        }
+        function difference() {
+            var a = parseFloat(document.getElementById("tb1").value);
+            var b = parseFloat(document.getElementById("tb2").value);
+            var c = a - b;
+            window.alert(c);
+        }
+    </script>
+
+</body>
+</html>
